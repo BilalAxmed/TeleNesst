@@ -1,0 +1,66 @@
+{
+  "id": "/",
+  "name": "TeleNest - Warehouse & ICT Inventory System",
+  "short_name": "TeleNest",
+  "description": "Warehouse & ICT Activity Inventory Management System developed by Bilal Ahmed",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#090d16",
+  "background_color": "#090d16",
+  "categories": [
+    "business",
+    "productivity",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Warehouse Inventory",
+      "short_name": "Inventory",
+      "description": "View and manage stock items, serial numbers, and movements",
+      "url": "/#inventory",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Daily Work Operations",
+      "short_name": "Daily Work",
+      "description": "Field logs, splicing counts, and optical meter installation",
+      "url": "/#ict-insights",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Database & Backups",
+      "short_name": "Backups",
+      "description": "Local snapshots, auto-saves, and export software data",
+      "url": "/#settings",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

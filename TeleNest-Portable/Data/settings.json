@@ -1,0 +1,10 @@
+{
+  "app": "TeleNest",
+  "version": "1.0.0",
+  "edition": "Windows Portable Enterprise",
+  "developer": "Bilal Ahmed",
+  "homeCurrency": "USD",
+  "defaultPort": 3000,
+  "offlineMode": true,
+  "autoSaveEnabled": true
+}

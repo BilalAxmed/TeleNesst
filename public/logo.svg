@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080e1a" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="hexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <filter id="coreGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Squircle Rounded Base Container for Modern Windows 11 & Web -->
+  <rect width="256" height="256" rx="56" fill="url(#bgGrad)" />
+  <rect x="3" y="3" width="250" height="250" rx="53" fill="none" stroke="url(#borderGrad)" stroke-width="3" stroke-opacity="0.7" />
+
+  <!-- Outer Hexagonal Telecommunication Shield -->
+  <polygon points="128,34 212,82 212,174 128,222 44,174 44,82" 
+           fill="url(#hexGrad)" stroke="url(#accentGrad)" stroke-width="5.5" stroke-linejoin="round" filter="url(#coreGlow)" />
+
+  <!-- Concentric Telecommunication Signal Ring -->
+  <circle cx="128" cy="128" r="64" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="10,6" stroke-opacity="0.85" />
+  <circle cx="128" cy="128" r="42" fill="#0b1d3a" stroke="#60a5fa" stroke-width="2.5" />
+
+  <!-- Central Optical Core Node -->
+  <circle cx="128" cy="128" r="22" fill="#38bdf8" />
+  <circle cx="128" cy="128" r="11" fill="#ffffff" />
+
+  <!-- Radial Optical Distribution Bus Lines -->
+  <line x1="128" y1="52" x2="128" y2="96" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+  <line x1="128" y1="160" x2="128" y2="204" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+  <line x1="62" y1="90" x2="100" y2="112" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+  <line x1="156" y1="144" x2="194" y2="166" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+  <line x1="194" y1="90" x2="156" y2="112" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+  <line x1="100" y1="144" x2="62" y2="166" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" />
+
+  <!-- Node Terminal Points -->
+  <circle cx="128" cy="46" r="6.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+  <circle cx="202" cy="88" r="6.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+  <circle cx="202" cy="168" r="6.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+  <circle cx="128" cy="210" r="6.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+  <circle cx="54" cy="168" r="6.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+  <circle cx="54" cy="88" r="6.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5" />
+</svg>

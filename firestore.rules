@@ -1,0 +1,173 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        (request.auth.token.email == "bilalaxmed.47@gmail.com" && request.auth.token.email_verified == true) ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // Validation Helpers
+    function isValidUser(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.name is string && data.name.size() <= 100 &&
+             data.username is string && data.username.size() <= 50 &&
+             data.role in ['Developer/CEO', 'Admin', 'Standard User'];
+    }
+
+    function isValidInventoryItem(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.sku is string && data.sku.size() <= 50 &&
+             data.name is string && data.name.size() <= 150 &&
+             data.category is string && data.category.size() <= 80 &&
+             data.uom is string && data.uom.size() <= 30 &&
+             data.currentStock is number;
+    }
+
+    function isValidStockMovement(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.type in ['IN', 'OUT'] &&
+             data.itemId is string && data.itemId.size() <= 128 &&
+             data.itemName is string && data.itemName.size() <= 150 &&
+             data.quantity is number &&
+             data.date is string && data.date.size() <= 50;
+    }
+
+    function isValidProject(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.title is string && data.title.size() <= 150 &&
+             data.status in ['Ongoing', 'Completed', 'On Hold'];
+    }
+
+    function isValidDailyWork(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.date is string && data.date.size() <= 50 &&
+             data.site is string && data.site.size() <= 150 &&
+             data.technician is string && data.technician.size() <= 100;
+    }
+
+    function isValidExpense(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.type in ['maintenance', 'ongoing'] &&
+             data.category is string && data.category.size() <= 80 &&
+             data.amount is number &&
+             data.date is string && data.date.size() <= 50;
+    }
+
+    function isValidICTRecord(data) {
+      return data.id is string && data.id.size() <= 128 &&
+             data.infraType in ['FTTH', 'FTTB', 'FTTM'] &&
+             data.siteName is string && data.siteName.size() <= 150;
+    }
+
+    function isValidSystemSetting(data) {
+      return data.id is string && data.id.size() <= 128;
+    }
+
+    // Admins registry
+    match /admins/{adminId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    // Connection probe test document
+    match /test/{docId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // Users Collection
+    match /users/{userId} {
+      allow get: if isSignedIn() && isValidId(userId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(userId) && isValidUser(incoming());
+      allow update: if isSignedIn() && isValidId(userId) && isValidUser(incoming());
+      allow delete: if isAdmin() && isValidId(userId);
+    }
+
+    // Inventory Collection
+    match /inventory/{itemId} {
+      allow get: if isSignedIn() && isValidId(itemId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(itemId) && isValidInventoryItem(incoming());
+      allow update: if isSignedIn() && isValidId(itemId) && isValidInventoryItem(incoming());
+      allow delete: if (isAdmin() || isSignedIn()) && isValidId(itemId);
+    }
+
+    // Stock Movements
+    match /movements/{movementId} {
+      allow get: if isSignedIn() && isValidId(movementId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(movementId) && isValidStockMovement(incoming());
+      allow update: if isSignedIn() && isValidId(movementId) && isValidStockMovement(incoming());
+      allow delete: if isAdmin() && isValidId(movementId);
+    }
+
+    // Projects
+    match /projects/{projectId} {
+      allow get: if isSignedIn() && isValidId(projectId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(projectId) && isValidProject(incoming());
+      allow update: if isSignedIn() && isValidId(projectId) && isValidProject(incoming());
+      allow delete: if (isAdmin() || isSignedIn()) && isValidId(projectId);
+    }
+
+    // Daily Works
+    match /dailyWorks/{dailyWorkId} {
+      allow get: if isSignedIn() && isValidId(dailyWorkId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(dailyWorkId) && isValidDailyWork(incoming());
+      allow update: if isSignedIn() && isValidId(dailyWorkId) && isValidDailyWork(incoming());
+      allow delete: if (isAdmin() || isSignedIn()) && isValidId(dailyWorkId);
+    }
+
+    // Expenses
+    match /expenses/{expenseId} {
+      allow get: if isSignedIn() && isValidId(expenseId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(expenseId) && isValidExpense(incoming());
+      allow update: if isSignedIn() && isValidId(expenseId) && isValidExpense(incoming());
+      allow delete: if (isAdmin() || isSignedIn()) && isValidId(expenseId);
+    }
+
+    // ICT Records
+    match /ictRecords/{recordId} {
+      allow get: if isSignedIn() && isValidId(recordId);
+      allow list: if isSignedIn();
+      allow create: if isSignedIn() && isValidId(recordId) && isValidICTRecord(incoming());
+      allow update: if isSignedIn() && isValidId(recordId) && isValidICTRecord(incoming());
+      allow delete: if (isAdmin() || isSignedIn()) && isValidId(recordId);
+    }
+
+    // System Settings
+    match /settings/{settingId} {
+      allow get: if isSignedIn() && isValidId(settingId);
+      allow list: if isSignedIn();
+      allow create, update: if isSignedIn() && isValidId(settingId) && isValidSystemSetting(incoming());
+      allow delete: if isAdmin() && isValidId(settingId);
+    }
+  }
+}

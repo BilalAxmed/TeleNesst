@@ -1,0 +1,6 @@
+{
+  "name": "TeleNest",
+  "description": "Warehouse & ICT Activity Inventory Management System developed by Bilal Ahmed",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

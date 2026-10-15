@@ -1,0 +1,171 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role and operations permissions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique user ID" },
+        "name": { "type": "string", "maxLength": 100, "description": "Full name of the user" },
+        "username": { "type": "string", "maxLength": 50, "description": "Unique username" },
+        "role": { "type": "string", "enum": ["Developer/CEO", "Admin", "Standard User"], "description": "User role tier" },
+        "email": { "type": "string", "maxLength": 150, "description": "Optional email address" },
+        "disabled": { "type": "boolean", "description": "Whether user account is disabled" },
+        "isDefault": { "type": "boolean", "description": "Default active account flag" },
+        "createdAt": { "type": "string", "maxLength": 50, "description": "Account creation timestamp" },
+        "lastLogin": { "type": "string", "maxLength": 50, "description": "Last login timestamp" }
+      },
+      "required": ["id", "name", "username", "role"]
+    },
+    "InventoryItem": {
+      "title": "InventoryItem",
+      "description": "Warehouse inventory item in stock master",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique item ID" },
+        "sku": { "type": "string", "maxLength": 50, "description": "Stock keeping unit" },
+        "name": { "type": "string", "maxLength": 150, "description": "Product or material name" },
+        "category": { "type": "string", "maxLength": 80, "description": "Inventory category" },
+        "model": { "type": "string", "maxLength": 100, "description": "Model or specification" },
+        "location": { "type": "string", "maxLength": 100, "description": "Depot warehouse storage location" },
+        "uom": { "type": "string", "maxLength": 30, "description": "Unit of measure (pcs, meters, rolls, etc.)" },
+        "openingStock": { "type": "number", "description": "Initial stock quantity" },
+        "inQty": { "type": "number", "description": "Total quantity received" },
+        "outQty": { "type": "number", "description": "Total quantity issued" },
+        "currentStock": { "type": "number", "description": "Current on-hand balance" },
+        "minStockAlert": { "type": "number", "description": "Reorder safety threshold" },
+        "unitCost": { "type": "number", "description": "Unit purchasing price" },
+        "currency": { "type": "string", "maxLength": 10, "description": "Currency code" },
+        "lastUpdated": { "type": "string", "maxLength": 50, "description": "Last modified timestamp" }
+      },
+      "required": ["id", "sku", "name", "category", "uom", "currentStock"]
+    },
+    "StockMovement": {
+      "title": "StockMovement",
+      "description": "Stock inbound and outbound movement transaction",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique movement transaction ID" },
+        "type": { "type": "string", "enum": ["IN", "OUT"], "description": "Movement direction" },
+        "itemId": { "type": "string", "maxLength": 128, "description": "Target inventory item ID" },
+        "itemName": { "type": "string", "maxLength": 150, "description": "Inventory item name" },
+        "sku": { "type": "string", "maxLength": 50, "description": "SKU code" },
+        "quantity": { "type": "number", "description": "Movement quantity" },
+        "referenceNo": { "type": "string", "maxLength": 80, "description": "PO, Dispatch or invoice reference" },
+        "recipientOrSupplier": { "type": "string", "maxLength": 120, "description": "Source supplier or technician" },
+        "date": { "type": "string", "maxLength": 50, "description": "Movement date" },
+        "recordedBy": { "type": "string", "maxLength": 100, "description": "User who recorded the transaction" },
+        "notes": { "type": "string", "maxLength": 500, "description": "Additional notes" }
+      },
+      "required": ["id", "type", "itemId", "itemName", "quantity", "date"]
+    },
+    "Project": {
+      "title": "Project",
+      "description": "Operational project and work order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique project ID" },
+        "title": { "type": "string", "maxLength": 150, "description": "Project title" },
+        "client": { "type": "string", "maxLength": 100, "description": "Client or stakeholder name" },
+        "status": { "type": "string", "enum": ["Ongoing", "Completed", "On Hold"], "description": "Project status" },
+        "progress": { "type": "number", "description": "Completion percentage" },
+        "budget": { "type": "number", "description": "Allocated budget" },
+        "startDate": { "type": "string", "maxLength": 50, "description": "Start date" },
+        "endDate": { "type": "string", "maxLength": 50, "description": "Target or actual completion date" },
+        "leadEngineer": { "type": "string", "maxLength": 100, "description": "Lead engineer or manager" }
+      },
+      "required": ["id", "title", "status"]
+    },
+    "DailyWork": {
+      "title": "DailyWork",
+      "description": "Daily field work and technician activity log",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique daily work ID" },
+        "date": { "type": "string", "maxLength": 50, "description": "Work date" },
+        "site": { "type": "string", "maxLength": 150, "description": "Work site or location name" },
+        "technician": { "type": "string", "maxLength": 100, "description": "Field technician or team lead" },
+        "tasks": { "type": "string", "maxLength": 1000, "description": "Description of work done" },
+        "status": { "type": "string", "maxLength": 30, "description": "Task status" },
+        "hoursWorked": { "type": "number", "description": "Hours spent on site" }
+      },
+      "required": ["id", "date", "site", "technician"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Maintenance and operational expense ledger entry",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique expense record ID" },
+        "type": { "type": "string", "enum": ["maintenance", "ongoing"], "description": "Expense classification" },
+        "category": { "type": "string", "maxLength": 80, "description": "Expense category" },
+        "amount": { "type": "number", "description": "Monetary cost" },
+        "currency": { "type": "string", "maxLength": 10, "description": "Currency code" },
+        "date": { "type": "string", "maxLength": 50, "description": "Expense date" },
+        "description": { "type": "string", "maxLength": 400, "description": "Description or vendor details" },
+        "recordedBy": { "type": "string", "maxLength": 100, "description": "User who logged the expense" }
+      },
+      "required": ["id", "type", "category", "amount", "date"]
+    },
+    "ICTRecord": {
+      "title": "ICTRecord",
+      "description": "ICT network infrastructure and fiber deployment tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Unique ICT record ID" },
+        "infraType": { "type": "string", "enum": ["FTTH", "FTTB", "FTTM"], "description": "Fiber topology type" },
+        "siteName": { "type": "string", "maxLength": 150, "description": "Site or cabinet identifier" },
+        "portCapacity": { "type": "number", "description": "Total port or core capacity" },
+        "portsUsed": { "type": "number", "description": "Active connected ports" },
+        "status": { "type": "string", "maxLength": 50, "description": "Operational health status" },
+        "updatedAt": { "type": "string", "maxLength": 50, "description": "Last inspection or update timestamp" }
+      },
+      "required": ["id", "infraType", "siteName"]
+    },
+    "SystemSetting": {
+      "title": "SystemSetting",
+      "description": "System wide configuration, letterhead, and rates",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128, "description": "Settings document ID" },
+        "updatedAt": { "type": "string", "maxLength": 50, "description": "Last updated timestamp" },
+        "updatedBy": { "type": "string", "maxLength": 100, "description": "User who changed configuration" }
+      },
+      "required": ["id"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profiles and RBAC permissions"
+    },
+    "/inventory/{itemId}": {
+      "schema": "InventoryItem",
+      "description": "Warehouse inventory stock items"
+    },
+    "/movements/{movementId}": {
+      "schema": "StockMovement",
+      "description": "Stock inbound and outbound movements"
+    },
+    "/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Operational projects"
+    },
+    "/dailyWorks/{dailyWorkId}": {
+      "schema": "DailyWork",
+      "description": "Daily field works and tasks"
+    },
+    "/expenses/{expenseId}": {
+      "schema": "Expense",
+      "description": "Maintenance and operational expenses"
+    },
+    "/ictRecords/{recordId}": {
+      "schema": "ICTRecord",
+      "description": "ICT and fiber infrastructure records"
+    },
+    "/settings/{settingId}": {
+      "schema": "SystemSetting",
+      "description": "System settings and metadata"
+    }
+  }
+}

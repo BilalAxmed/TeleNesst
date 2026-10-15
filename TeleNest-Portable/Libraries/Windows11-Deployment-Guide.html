@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TeleNest - Windows 11 Certified Offline Package Guide</title>
+  <style>
+    :root {
+      --bg: #0c101d;
+      --card: #151b2e;
+      --border: #273552;
+      --accent: #0284c7;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 32px 16px; line-height: 1.6; }
+    .container { max-width: 900px; margin: 0 auto; }
+    .header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .logo { width: 56px; height: 56px; border-radius: 14px; background: #000; border: 1px solid var(--border); padding: 6px; }
+    h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 9999px; background: rgba(16, 185, 129, 0.2); color: #34d399; font-size: 11px; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 20px; }
+    h2 { font-size: 17px; margin-bottom: 12px; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
+    p { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+    ul { list-style: none; }
+    li { font-size: 13px; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; color: var(--text); }
+    code { background: #0b0f19; padding: 2px 6px; border-radius: 4px; border: 1px solid #1e293b; color: #38bdf8; font-family: Consolas, monospace; font-size: 12px; }
+    .launch-btn { display: inline-block; background: #0284c7; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 13px; font-weight: 700; transition: background 0.2s; margin-top: 8px; }
+    .launch-btn:hover { background: #0369a1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="teleNestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="nestAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="200" height="200" rx="44" fill="#090d16" />
+  <rect x="2" y="2" width="196" height="196" rx="42" fill="none" stroke="url(#teleNestGrad)" stroke-width="3" opacity="0.6" />
+  
+  <polygon points="100,28 162,64 162,136 100,172 38,136 38,64" 
+           fill="url(#teleNestGrad)" stroke="url(#nestAccent)" stroke-width="4" filter="url(#glow)" />
+  
+  <circle cx="100" cy="100" r="48" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6,4" opacity="0.8" />
+  
+  <circle cx="100" cy="100" r="16" fill="#38bdf8" />
+  <circle cx="100" cy="100" r="8" fill="#ffffff" />
+  
+  <line x1="100" y1="44" x2="100" y2="76" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+  <line x1="100" y1="124" x2="100" y2="156" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+  <line x1="52" y1="72" x2="80" y2="88" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+  <line x1="120" y1="112" x2="148" y2="128" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+  <line x1="148" y1="72" x2="120" y2="88" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+  <line x1="80" y1="112" x2="52" y2="128" stroke="#ffffff" stroke-width="4" stroke-linecap="round" />
+
+  <circle cx="100" cy="38" r="4" fill="#38bdf8" />
+  <circle cx="154" cy="70" r="4" fill="#38bdf8" />
+  <circle cx="154" cy="130" r="4" fill="#38bdf8" />
+  <circle cx="100" cy="162" r="4" fill="#38bdf8" />
+  <circle cx="46" cy="130" r="4" fill="#38bdf8" />
+  <circle cx="46" cy="70" r="4" fill="#38bdf8" />
+</svg></div>
+      <div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <h1>TeleNest Windows 11 Offline Package</h1>
+          <span class="badge">Certified Complete</span>
+        </div>
+        <div style="font-size: 12px; color: var(--muted); margin-top: 4px;">
+          TeleNest Warehouse & ICT Operations Software &bull; Systems Architecture by Bilal Ahmed
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>1. Instant One-Click Launch (Windows 11)</h2>
+      <p>Choose any of the native launchers included in this folder to run the complete software offline:</p>
+      <ul>
+        <li><strong>TeleNest.bat:</strong> Recommended launcher. Automatically launches Microsoft Edge or Chrome in clean, frameless App Window mode.</li>
+        <li><strong>Setup-And-Start-Exe.bat:</strong> Automates compiling <code>TeleNest.exe</code> with the TeleNest logo using Windows built-in C# compiler and immediately starts the executable.</li>
+        <li><strong>Install-Windows11-Shortcut.bat:</strong> Instantly creates a desktop shortcut and Windows Start Menu entry with the TeleNest icon.</li>
+        <li><strong>Start-TeleNest-Win11.ps1:</strong> Native Windows 11 PowerShell runner.</li>
+        <li><strong>app.html:</strong> Direct offline HTML application containing all embedded database records and styles.</li>
+      </ul>
+      <a href="app.html" class="launch-btn" target="_blank">Open TeleNest App Now &rarr;</a>
+    </div>
+
+    <div class="card">
+      <h2>2. Offline Security &amp; Local Persistence</h2>
+      <p>This software operates 100% disconnected from the internet. All records, inventory transactions, FTTH/FTTB deployments, and project logs are safely persisted inside the local browser container and can be exported anytime as a full JSON backup.</p>
+      <ul>
+        <li>SKUs Tracked: <code>8 items</code></li>
+        <li>Movement Logs: <code>3 logged entries</code></li>
+        <li>FTTH Fiber Clusters: <code>5 deployments</code></li>
+        <li>Turnkey Projects: <code>4 project records</code></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

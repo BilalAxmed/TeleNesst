@@ -1,0 +1,135 @@
+{
+  "app": "TeleNest",
+  "report": "Daily Work Field Operations Log",
+  "exportedAt": "2026-09-20T15:07:38.343Z",
+  "developer": "Bilal Ahmed",
+  "statistics": {
+    "totalDailyWorks": 4,
+    "totalMetersInstalled": 3050
+  },
+  "dailyWorks": [
+    {
+      "id": "dw_001",
+      "rowNumber": 1,
+      "isRowChecked": true,
+      "siteId": "SITE-FTTH-G11-C4",
+      "siteName": "Sector G-11/3 North Distribution Sub-Exchange",
+      "date": "2024-09-08",
+      "completionDateTime": "2024-09-08 17:45:00",
+      "projectCode": "PRJ-FTTH-ISB-G11",
+      "projectName": "Capital Smart Fiber City - Sector G-11 Rollout",
+      "workType": "FTTH",
+      "teamLead": "Hamza Tariq",
+      "techniciansCount": 6,
+      "tasksCompleted": "Spliced 4 FAT boxes (FAT-17 through FAT-20). Tested 64 customer drop points with EXFO optical power meter.",
+      "metersInstalled": 1420,
+      "issuesEncountered": "Underground microduct obstruction near Street 45 resolved via pneumatic duct-rodder clearing.",
+      "status": "Completed",
+      "weatherCondition": "Clear 29°C",
+      "safetyIncidentReported": false,
+      "photos": [
+        {
+          "id": "p_001",
+          "name": "FAT_Box_Splice_Verification.jpg",
+          "url": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&auto=format&fit=crop&q=80",
+          "caption": "FAT-18 Outdoor pole-mounted optical termination with waterproof grommets",
+          "uploadedAt": "2024-09-08 16:30:00",
+          "fileSize": "1.8 MB"
+        },
+        {
+          "id": "p_002",
+          "name": "OTDR_Attenuation_Pass_Result.jpg",
+          "url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop&q=80",
+          "caption": "EXFO power meter test reading -18.6 dBm at customer premise terminal",
+          "uploadedAt": "2024-09-08 17:15:00",
+          "fileSize": "1.2 MB"
+        }
+      ],
+      "notes": "All technician PPE verified (safety boots, hard hats, eye protection for fiber handling). Site signoff obtained from client inspector."
+    },
+    {
+      "id": "dw_002",
+      "rowNumber": 2,
+      "isRowChecked": true,
+      "siteId": "SITE-BTS-METRO-982",
+      "siteName": "Blue Area Metro Station 5G Tower Node 982",
+      "date": "2024-09-07",
+      "completionDateTime": "2024-09-07 18:20:00",
+      "projectCode": "PRJ-FTTM-METRO-5G",
+      "projectName": "Metro 5G Cellular Tower Fiber Ring Backhaul Expansion",
+      "workType": "FTTM",
+      "teamLead": "Bilal Ahmed",
+      "techniciansCount": 4,
+      "tasksCompleted": "Completed OTDR bidirectional testing on Tower Node BTS-982. Terminated 10G BiDi optical transceiver links into Huawei OLT.",
+      "metersInstalled": 680,
+      "issuesEncountered": "Traffic diversion permit delayed by 40 minutes in morning hours.",
+      "status": "Completed",
+      "weatherCondition": "Sunny 31°C",
+      "safetyIncidentReported": false,
+      "photos": [
+        {
+          "id": "p_003",
+          "name": "Tower_Base_ODF_Cabinet.jpg",
+          "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&auto=format&fit=crop&q=80",
+          "caption": "Weatherproof high-density fiber panel installed at tower base shelter",
+          "uploadedAt": "2024-09-07 17:50:00",
+          "fileSize": "2.4 MB"
+        }
+      ],
+      "notes": "Direct backhaul line confirmed live with central NOC operations. All optical links certified zero error count."
+    },
+    {
+      "id": "dw_003",
+      "rowNumber": 3,
+      "isRowChecked": false,
+      "siteId": "SITE-WH-CENTRAL-DEPOT",
+      "siteName": "TeleNest Central Logistics Warehouse - Bay 4",
+      "date": "2024-09-06",
+      "completionDateTime": "2024-09-06 15:30:00",
+      "projectCode": "PRJ-FTTH-ISB-G11",
+      "projectName": "Capital Smart Fiber City - Sector G-11 Rollout",
+      "workType": "Warehouse Logistics",
+      "teamLead": "Usman Ghani",
+      "techniciansCount": 3,
+      "tasksCompleted": "Sorted incoming batch of Corning loose tube fiber cables. Calibrated 2 Fujikura fusion splicers before field deployment.",
+      "metersInstalled": 0,
+      "issuesEncountered": "None",
+      "status": "Submitted",
+      "weatherCondition": "Warehouse Indoors",
+      "safetyIncidentReported": false,
+      "photos": [],
+      "notes": "Warehouse rack A-12 restocked and barcoded. Calibration certificates stored in equipment binders."
+    },
+    {
+      "id": "dw_004",
+      "rowNumber": 4,
+      "isRowChecked": true,
+      "siteId": "SITE-FTTB-CENT-TWA",
+      "siteName": "Centaurus Commercial Towers - Tower A Riser Shaft",
+      "date": "2024-09-05",
+      "completionDateTime": "2024-09-05 16:45:00",
+      "projectCode": "PRJ-FTTB-CENTAURUS",
+      "projectName": "Centaurus Mall & Commercial Complex Gigabit FTTB",
+      "workType": "FTTB",
+      "teamLead": "Bilal Ahmed",
+      "techniciansCount": 5,
+      "tasksCompleted": "Terminated 48-Core riser fiber into 19-inch MDU panel on 14th floor. Connected corporate tenant lines with SC/APC pigtails.",
+      "metersInstalled": 950,
+      "issuesEncountered": "Building management power shutdown between 13:00 - 14:00.",
+      "status": "Completed",
+      "weatherCondition": "Building Indoors",
+      "safetyIncidentReported": false,
+      "photos": [
+        {
+          "id": "p_004",
+          "name": "MDU_Riser_Shaft_Cable_Management.jpg",
+          "url": "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&auto=format&fit=crop&q=80",
+          "caption": "Floor 14 MDU fiber box mounted inside fire-rated vertical riser shaft",
+          "uploadedAt": "2024-09-05 16:30:00",
+          "fileSize": "1.9 MB"
+        }
+      ],
+      "notes": "Floor 14 and 15 tenant lines tested. Insertion loss under 0.25 dB per splice."
+    }
+  ]
+}
